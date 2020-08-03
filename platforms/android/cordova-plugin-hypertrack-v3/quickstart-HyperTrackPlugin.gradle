@@ -1,0 +1,22 @@
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.0.1'
+        classpath 'com.google.gms:google-services:4.0.1'
+    }
+}
+repositories {
+    maven {
+        name 'hypertrack'
+        url  'https://s3-us-west-2.amazonaws.com/m2.hypertrack.com/'
+    }
+}
+dependencies {
+    compile 'com.hypertrack:hypertrack:4.5.3'
+    api 'com.google.firebase:firebase-messaging:17.1.0'
+}
+
