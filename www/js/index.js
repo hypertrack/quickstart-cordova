@@ -17,61 +17,73 @@
  * under the License.
  */
 var app = {
-    // Application Constructor
-    initialize: function() {
-        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-    },
+  // Application Constructor
+  initialize: function() {
+    document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+  },
 
-    // deviceready Event Handler
-    //
-    // Bind any cordova events here. Common events are:
-    // 'pause', 'resume', etc.
-    onDeviceReady: function() {
-        this.receivedEvent('deviceready');
-    },
+  // deviceready Event Handler
+  //
+  // Bind any cordova events here. Common events are:
+  // 'pause', 'resume', etc.
+  onDeviceReady: function() {
+    this.receivedEvent('deviceready');
+  },
 
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+  // Update DOM on a Received Event
+  receivedEvent: function(id) {
+    var parentElement = document.getElementById(id);
+    var listeningElement = parentElement.querySelector('.listening');
+    var receivedElement = parentElement.querySelector('.received');
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+    listeningElement.setAttribute('style', 'display:none;');
+    receivedElement.setAttribute('style', 'display:block;');
 
-        console.log('Received Event: ' + id);
-        
-        hypertrack.enableDebugLogging();
-        hypertrack.initialize(
-            'MY-PUBLISHABLE-KEY', onHyperTrackReady, onHyperTrackInitFailed 
-            );
-        window.addEventListener('onHyperTrackStatusChanged', onHyperTrackStatusChanged);
-        
-    }
+    console.log('Received Event: ' + id);
+
+    hypertrack.enableDebugLogging();
+    hypertrack.initialize(
+        'uvIAA8xJANxUxDgINOX62-LINLuLeymS6JbGieJ9PegAPITcr9fgUpROpfSMdL9kv-qFjl17NeAuBHse8Qu9sw', onHyperTrackReady, onHyperTrackInitFailed
+      );
+    window.addEventListener('onHyperTrackStatusChanged', onHyperTrackStatusChanged);
+  }
 };
 
 function onHyperTrackReady(sdkInstance) {
-    console.log("HyperTrack succesfully initialized");
-    sdkInstance.getDeviceId(
-        function(deviceId) {console.log("HyperTrack device id is " + deviceId);},
-        function(err) {console.log("HyperTrack: can't get device id due to err " + err);}
-    );
-    sdkInstance.setDeviceName('Elvis');
-
+  console.log("HyperTrack succesfully initialized");
+  // Device ID
+  sdkInstance.getDeviceId(
+    function(deviceId) {console.log("HyperTrack device id is " + deviceId);},
+    function(err) {console.log("HyperTrack: can't get device id due to err " + err);}
+  );
+  // Set device name
+  sdkInstance.setDeviceName('Elvis');
+  // Set device metadata
+  sdkInstance.setDeviceMetadata({"platform": "cordova"});
+  // is running
+  sdkInstance.isRunning(
+    function(isRunning) {console.log("HyperTrack isRunning: " + isRunning);},
+    function(err) {console.log("HyperTrack: can't get is running status due to err " + err);}
+  );
+  // Sync Settings
+  sdkInstance.syncDeviceSettings(
+   function(isRunning) {console.log("HyperTrack sync device settings:");},
+   function(err) {console.log("HyperTrack: can't get sync device settings due to err " + err);}
+ );
 }
 
-function onHyperTrackInitFailed(error) { 
-    console.log("HyperTrack init failed with error " + error);
+function onHyperTrackInitFailed(error) {
+  console.log("HyperTrack init failed with error " + error);
 }
 
 /**
  * Callback, that fires when tracking status changes.
- * 
+ *
  * @param {String} newStatus 'start', 'stop' or error description.
- * 
+ *
  */
 function onHyperTrackStatusChanged(newStatus) {
-    console.log("Received HyperTrack status change: " + newStatus);
+  console.log("Received HyperTrack status change: " + newStatus);
 }
 
 app.initialize();
