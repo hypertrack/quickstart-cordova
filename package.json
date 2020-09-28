@@ -22,8 +22,8 @@
   },
   "cordova": {
     "plugins": {
-      "cordova-plugin-whitelist": {},
-      "cordova-plugin-hypertrack-v3": {}
+      "cordova-plugin-hypertrack-v3": {},
+      "cordova-plugin-whitelist": {}
     },
     "platforms": [
       "ios"
