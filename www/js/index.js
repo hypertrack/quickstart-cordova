@@ -41,11 +41,12 @@ var app = {
 
     console.log('Received Event: ' + id);
 
+    hypertrack.addEventListener('onHyperTrackStatusChanged', onHyperTrackStatusChanged);
+    hypertrack.addEventListener('onHyperTrackError', onHyperTrackError);
     hypertrack.enableDebugLogging();
     hypertrack.initialize(
-        'uvIAA8xJANxUxDgINOX62-LINLuLeymS6JbGieJ9PegAPITcr9fgUpROpfSMdL9kv-qFjl17NeAuBHse8Qu9sw', onHyperTrackReady, onHyperTrackInitFailed
+        'YOUR_PUBLISHABLE_KEY', onHyperTrackReady, onHyperTrackInitFailed
       );
-    window.addEventListener('onHyperTrackStatusChanged', onHyperTrackStatusChanged);
   }
 };
 
@@ -83,7 +84,13 @@ function onHyperTrackInitFailed(error) {
  *
  */
 function onHyperTrackStatusChanged(newStatus) {
-  console.log("Received HyperTrack status change: " + newStatus);
+  console.log("Received HyperTrack status change: " + newStatus.data);
 }
+
+function onHyperTrackError(error) {
+  console.log("Received HyperTrack error: " + error.data);
+}
+
+
 
 app.initialize();
