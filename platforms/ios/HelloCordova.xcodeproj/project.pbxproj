@@ -10,13 +10,13 @@
 		0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0207DA571B56EA530066E2B4 /* Images.xcassets */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		2DD8AFDA1E0B4DB4AAD7B8CC /* AppDelegate+HyperTrackPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 069518EB660F407CA59C037D /* AppDelegate+HyperTrackPlugin.m */; };
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		302D95F114D2391D003F00A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* MainViewController.m */; };
 		302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D95F014D2391D003F00A1 /* MainViewController.xib */; };
+		3853AED26ECC42BF84E91852 /* HyperTrackPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B88A3114064F99AABBDF19 /* HyperTrackPlugin.m */; };
 		6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */; };
-		8571BA8E8F144A6B93185B73 /* AppDelegate+HyperTrackPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = FA95FD8291274D468C5D1632 /* AppDelegate+HyperTrackPlugin.m */; };
-		E27FA4BAC7A2B5F1243D8815 /* Pods_HelloCordova.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E12692771CCE0D138C9E938 /* Pods_HelloCordova.framework */; };
-		ED5124FD6D134B4983DE7AF8 /* HyperTrackPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8290D4C64A44439DCBF592 /* HyperTrackPlugin.m */; };
+		A4308DB44101A09EAFDA6E96 /* Pods_HelloCordova.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF9B4114822EE182FE58CAB /* Pods_HelloCordova.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,11 +45,13 @@
 
 /* Begin PBXFileReference section */
 		0207DA571B56EA530066E2B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = HelloCordova/Images.xcassets; sourceTree = SOURCE_ROOT; };
-		1665786179484294B0EF79D4 /* HyperTrackPlugin.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = HyperTrackPlugin.h; path = "cordova-plugin-hypertrack-v3/HyperTrackPlugin.h"; sourceTree = "<group>"; };
+		069518EB660F407CA59C037D /* AppDelegate+HyperTrackPlugin.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate+HyperTrackPlugin.m"; path = "cordova-plugin-hypertrack-v3/AppDelegate+HyperTrackPlugin.m"; sourceTree = "<group>"; };
+		0FF025811710432EB2BEBC80 /* AppDelegate+HyperTrackPlugin.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "AppDelegate+HyperTrackPlugin.h"; path = "cordova-plugin-hypertrack-v3/AppDelegate+HyperTrackPlugin.h"; sourceTree = "<group>"; };
+		10B88A3114064F99AABBDF19 /* HyperTrackPlugin.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = HyperTrackPlugin.m; path = "cordova-plugin-hypertrack-v3/HyperTrackPlugin.m"; sourceTree = "<group>"; };
+		1A048FD35CAC493591081077 /* HyperTrackPlugin.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = HyperTrackPlugin.h; path = "cordova-plugin-hypertrack-v3/HyperTrackPlugin.h"; sourceTree = "<group>"; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* HelloCordova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloCordova.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		27E52BB73DE44CD892DDC308 /* AppDelegate+HyperTrackPlugin.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "AppDelegate+HyperTrackPlugin.h"; path = "cordova-plugin-hypertrack-v3/AppDelegate+HyperTrackPlugin.h"; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
 		301BF56E109A69640062928A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = SOURCE_ROOT; };
@@ -60,17 +62,15 @@
 		3047A5101AB8059700498E2A /* build-release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "build-release.xcconfig"; path = "cordova/build-release.xcconfig"; sourceTree = SOURCE_ROOT; };
 		3047A5111AB8059700498E2A /* build.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = build.xcconfig; path = cordova/build.xcconfig; sourceTree = SOURCE_ROOT; };
 		32CA4F630368D1EE00C91783 /* HelloCordova-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HelloCordova-Prefix.pch"; sourceTree = "<group>"; };
-		4E12692771CCE0D138C9E938 /* Pods_HelloCordova.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HelloCordova.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CDVLaunchScreen.storyboard; path = HelloCordova/CDVLaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		7FF9B4114822EE182FE58CAB /* Pods_HelloCordova.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HelloCordova.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D1107310486CEB800E47090 /* HelloCordova-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "HelloCordova-Info.plist"; path = "HelloCordova/HelloCordova-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = SOURCE_ROOT; };
-		A3B1F64A107284741596BA50 /* Pods-HelloCordova.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloCordova.debug.xcconfig"; path = "Target Support Files/Pods-HelloCordova/Pods-HelloCordova.debug.xcconfig"; sourceTree = "<group>"; };
-		DB8290D4C64A44439DCBF592 /* HyperTrackPlugin.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = HyperTrackPlugin.m; path = "cordova-plugin-hypertrack-v3/HyperTrackPlugin.m"; sourceTree = "<group>"; };
+		936C687A3D9269963FCD8725 /* Pods-HelloCordova.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloCordova.release.xcconfig"; path = "Target Support Files/Pods-HelloCordova/Pods-HelloCordova.release.xcconfig"; sourceTree = "<group>"; };
+		A89657C80B97924BF22BFC51 /* Pods-HelloCordova.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloCordova.debug.xcconfig"; path = "Target Support Files/Pods-HelloCordova/Pods-HelloCordova.debug.xcconfig"; sourceTree = "<group>"; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = HelloCordova/config.xml; sourceTree = "<group>"; };
-		FA95FD8291274D468C5D1632 /* AppDelegate+HyperTrackPlugin.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate+HyperTrackPlugin.m"; path = "cordova-plugin-hypertrack-v3/AppDelegate+HyperTrackPlugin.m"; sourceTree = "<group>"; };
-		FD01F75DE526432B4C2F6347 /* Pods-HelloCordova.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloCordova.release.xcconfig"; path = "Target Support Files/Pods-HelloCordova/Pods-HelloCordova.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,22 +79,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
-				E27FA4BAC7A2B5F1243D8815 /* Pods_HelloCordova.framework in Frameworks */,
+				A4308DB44101A09EAFDA6E96 /* Pods_HelloCordova.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		079B61119BEA19D48AD616B5 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A3B1F64A107284741596BA50 /* Pods-HelloCordova.debug.xcconfig */,
-				FD01F75DE526432B4C2F6347 /* Pods-HelloCordova.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,7 +107,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+		29B97314FDCFA39411CA2CEA = {
 			isa = PBXGroup;
 			children = (
 				EB87FDF41871DAF40020F90C /* config.xml */,
@@ -129,7 +120,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				079B61119BEA19D48AD616B5 /* Pods */,
+				30CAA0C969C2A2BAF03477B1 /* Pods */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -160,7 +151,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4E12692771CCE0D138C9E938 /* Pods_HelloCordova.framework */,
+				7FF9B4114822EE182FE58CAB /* Pods_HelloCordova.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -187,14 +178,24 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				FA95FD8291274D468C5D1632 /* AppDelegate+HyperTrackPlugin.m */,
-				DB8290D4C64A44439DCBF592 /* HyperTrackPlugin.m */,
-				27E52BB73DE44CD892DDC308 /* AppDelegate+HyperTrackPlugin.h */,
-				1665786179484294B0EF79D4 /* HyperTrackPlugin.h */,
+				069518EB660F407CA59C037D /* AppDelegate+HyperTrackPlugin.m */,
+				10B88A3114064F99AABBDF19 /* HyperTrackPlugin.m */,
+				0FF025811710432EB2BEBC80 /* AppDelegate+HyperTrackPlugin.h */,
+				1A048FD35CAC493591081077 /* HyperTrackPlugin.h */,
 			);
 			name = Plugins;
 			path = HelloCordova/Plugins;
 			sourceTree = SOURCE_ROOT;
+		};
+		30CAA0C969C2A2BAF03477B1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A89657C80B97924BF22BFC51 /* Pods-HelloCordova.debug.xcconfig */,
+				936C687A3D9269963FCD8725 /* Pods-HelloCordova.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
 		};
 		EB87FDF11871DA420020F90C /* Staging */ = {
 			isa = PBXGroup;
@@ -212,12 +213,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "HelloCordova" */;
 			buildPhases = (
-				7EF8579A96145C4F8378BEC8 /* [CP] Check Pods Manifest.lock */,
+				56A4000629F180E2E55F89A8 /* [CP] Check Pods Manifest.lock */,
 				304B58A110DAC018002A0835 /* Copy www directory */,
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
-				95077C8866561EC4F1CC6E61 /* [CP] Embed Pods Frameworks */,
+				CC26597C48B886E964209182 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -250,7 +251,7 @@
 				en,
 				Base,
 			);
-			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			mainGroup = 29B97314FDCFA39411CA2CEA;
 			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
 			projectReferences = (
@@ -312,7 +313,7 @@
 			shellScript = "\"$SRCROOT/HelloCordova/Scripts/copy-www-build-step.sh\"";
 			showEnvVarsInLog = 0;
 		};
-		7EF8579A96145C4F8378BEC8 /* [CP] Check Pods Manifest.lock */ = {
+		56A4000629F180E2E55F89A8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -334,7 +335,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		95077C8866561EC4F1CC6E61 /* [CP] Embed Pods Frameworks */ = {
+		CC26597C48B886E964209182 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -361,8 +362,8 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				8571BA8E8F144A6B93185B73 /* AppDelegate+HyperTrackPlugin.m in Sources */,
-				ED5124FD6D134B4983DE7AF8 /* HyperTrackPlugin.m in Sources */,
+				2DD8AFDA1E0B4DB4AAD7B8CC /* AppDelegate+HyperTrackPlugin.m in Sources */,
+				3853AED26ECC42BF84E91852 /* HyperTrackPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,7 +387,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = H4925W78YQ;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -399,6 +399,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hypertrack.cordova.quickstart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = NO;
 			};
 			name = Debug;
 		};
@@ -411,7 +412,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = H4925W78YQ;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HelloCordova/HelloCordova-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
@@ -422,6 +422,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hypertrack.cordova.quickstart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = NO;
 			};
 			name = Release;
 		};

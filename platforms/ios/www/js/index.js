@@ -71,6 +71,12 @@ function onHyperTrackReady(sdkInstance) {
    function(isRunning) {console.log("HyperTrack sync device settings:");},
    function(err) {console.log("HyperTrack: can't get sync device settings due to err " + err);}
  );
+
+  // Collect bread crumbs
+  sdkInstance.addGeoTag( {action: "login"}, {latitude: 35.0476912, longitude: -90.0260493},
+    function(deviceLocation) { console.log("Created geotag at " + deviceLocation); },
+    function(err) { console.log("Can't determine current location. Error code " + err); }
+  )
 }
 
 function onHyperTrackInitFailed(error) {

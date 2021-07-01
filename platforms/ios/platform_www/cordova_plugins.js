@@ -10,7 +10,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     }
   ];
   module.exports.metadata = {
-    "cordova-plugin-hypertrack-v3": "0.0.5",
+    "cordova-plugin-hypertrack-v3": "0.3.0",
     "cordova-plugin-whitelist": "1.3.4"
   };
 });
