@@ -2,14 +2,13 @@
 plugins/
 
 # Android Platform
-platforms/android/.gradle
-platforms/android/build
-platforms/android/assets/www
-platforms/android/local.properties
-platforms/android/CordovaLib/build
-platforms/android/CordovaLib/gen
-platforms/android/CordovaLib/local.properties
+platforms/
 
+google-services.json
+
+.idea/
+.idea/*
+*.iml
 
 # Node JS + TS
 logs

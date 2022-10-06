@@ -1,17 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.hypertrack.cordova.quickstart" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>HelloCordova</name>
-    <description>
-        A sample Apache Cordova application that responds to the deviceready event.
-    </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
-    </author>
+<!-- Don't put spaces to the app name! It can make the plugin unavailable -->
+    <name>QuickstartCordova</name>
+    <description></description>
     <content src="index.html" />
     <preference name="AndroidXEnabled" value="true" />
     <preference name="GradlePluginGoogleServicesEnabled" value="true" />
-    <plugin name="cordova-plugin-whitelist" spec="1" />
-    <plugin name="cordova-plugin-hypertrack-v3" spec="1" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -21,6 +15,7 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
+        <preference name="GradlePluginKotlinVersion" value="1.7.21" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />

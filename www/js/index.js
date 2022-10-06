@@ -1,102 +1,125 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
+const PUBLISHABLE_KEY = "PASTE-YOUR-PUBLISHABLE-KEY-HERE"
+
 var app = {
   // Application Constructor
-  initialize: function() {
-    document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+  initialize: function () {
+    document.addEventListener(
+      "deviceready",
+      this.onDeviceReady.bind(this),
+      false
+    );
   },
 
   // deviceready Event Handler
-  //
   // Bind any cordova events here. Common events are:
   // 'pause', 'resume', etc.
-  onDeviceReady: function() {
-    this.receivedEvent('deviceready');
+  onDeviceReady: function () {
+    this.receivedEvent("deviceready");
   },
 
   // Update DOM on a Received Event
-  receivedEvent: function(id) {
-    var parentElement = document.getElementById(id);
-    var listeningElement = parentElement.querySelector('.listening');
-    var receivedElement = parentElement.querySelector('.received');
+  receivedEvent: async function (id) {
+    try {
+      console.log('Initializing HyperTrack plugin...');
+      var hyperTrack = await HyperTrack.initialize(PUBLISHABLE_KEY, {
+        loggingEnabled: true,
+        allowMockLocations: true
+      })
+      console.log('Initialized HyperTrack', hyperTrack);
 
-    listeningElement.setAttribute('style', 'display:none;');
-    receivedElement.setAttribute('style', 'display:block;');
+      const deviceId = await hyperTrack.getDeviceId();
+      console.log('getDeviceId', deviceId);
+      document.getElementById("deviceId").textContent = deviceId
 
-    console.log('Received Event: ' + id);
+      const name = 'Quickstart Cordova'
+      hyperTrack.setName(name);
+      console.log('setName', name);
 
-    hypertrack.addEventListener('onHyperTrackStatusChanged', onHyperTrackStatusChanged);
-    hypertrack.addEventListener('onHyperTrackError', onHyperTrackError);
-    hypertrack.enableDebugLogging();
-    hypertrack.initialize(
-        'YOUR_PUBLISHABLE_KEY', onHyperTrackReady, onHyperTrackInitFailed
-      );
-  }
+      const metadata = {
+        app: 'Quickstart Cordova',
+        value: Math.random(),
+      }
+      hyperTrack.setMetadata(metadata);
+      console.log('setMetadata', JSON.stringify(metadata));
+
+      hyperTrack.subscribeToTracking(function (isTracking) {
+        console.log(`listener isTracking ${isTracking}`)
+        document.getElementById("trackingListener").textContent = JSON.stringify(isTracking)
+        document.getElementById("errorsListener").textContent = ""
+      })
+
+      hyperTrack.subscribeToAvailability(function (isAvailable) {
+        console.log(`listener isAvailable ${isAvailable}`)
+        document.getElementById("availabilityListener").textContent = JSON.stringify(isAvailable)
+      })
+
+      hyperTrack.subscribeToErrors(function (errors) {
+        console.log(`listener errors ${JSON.stringify(errors)}`)
+        document.getElementById("errorsListener").textContent = JSON.stringify(errors)
+      })
+
+      document.getElementById("startTracking").addEventListener("click", () => {
+        console.log("startTracking")
+        hyperTrack.startTracking();
+      });
+
+      document.getElementById("stopTracking").addEventListener("click", () => {
+        console.log("stopTracking")
+        hyperTrack.stopTracking();
+      });
+
+      document.getElementById("setAvailabilityTrue").addEventListener("click", () => {
+        console.log("set isAvailable = true")
+        hyperTrack.setAvailability(true);
+      });
+
+      document.getElementById("setAvailabilityFalse").addEventListener("click", () => {
+        console.log("set isAvailable = false")
+        hyperTrack.setAvailability(false);
+      });
+
+      document.getElementById("getAvailability").addEventListener("click", async () => {
+        const isAvailable = await hyperTrack.isAvailable()
+        logAndAlert(`isAvailable ${isAvailable}`)
+      });
+
+      document.getElementById("isTracking").addEventListener("click", async () => {
+        const isTracking = await hyperTrack.isTracking()
+        logAndAlert(`isTracking ${isTracking}`)
+      });
+
+      document.getElementById("disposeListeners").addEventListener("click", () => {
+        hyperTrack.unsubscribeFromTracking()
+        hyperTrack.unsubscribeFromAvailability()
+        hyperTrack.unsubscribeFromErrors()
+        logAndAlert("disposeListeners")
+      });
+
+      document.getElementById("getLocation").addEventListener("click", async () => {
+        const result = await hyperTrack.getLocation()
+        logAndAlert(`getLocation ${JSON.stringify(result)}`)
+      });
+
+      document.getElementById("addGeotag").addEventListener("click", async () => {
+        const result = await hyperTrack.addGeotag({
+          payload: 'Quickstart Cordova',
+          value: Math.random(),
+        })
+        logAndAlert(`addGeotag ${JSON.stringify(result)}`)
+      });
+
+      document.getElementById("sync").addEventListener("click", () => {
+        logAndAlert("sync")
+      });
+    } catch (e) {
+      console.log("Error", e)
+    }
+  },
 };
 
-function onHyperTrackReady(sdkInstance) {
-  console.log("HyperTrack succesfully initialized");
-  // Device ID
-  sdkInstance.getDeviceId(
-    function(deviceId) {console.log("HyperTrack device id is " + deviceId);},
-    function(err) {console.log("HyperTrack: can't get device id due to err " + err);}
-  );
-  // Set device name
-  sdkInstance.setDeviceName('Elvis');
-  // Set device metadata
-  sdkInstance.setDeviceMetadata({"platform": "cordova"});
-  // is running
-  sdkInstance.isRunning(
-    function(isRunning) {console.log("HyperTrack isRunning: " + isRunning);},
-    function(err) {console.log("HyperTrack: can't get is running status due to err " + err);}
-  );
-  // Sync Settings
-  sdkInstance.syncDeviceSettings(
-   function(isRunning) {console.log("HyperTrack sync device settings:");},
-   function(err) {console.log("HyperTrack: can't get sync device settings due to err " + err);}
- );
-
-  // Collect bread crumbs
-  sdkInstance.addGeoTag( {action: "login"}, {latitude: 35.0476912, longitude: -90.0260493},
-    function(deviceLocation) { console.log("Created geotag at " + deviceLocation); },
-    function(err) { console.log("Can't determine current location. Error code " + err); }
-  )
+function logAndAlert(text) {
+  console.log(text);
+  alert(text);
 }
-
-function onHyperTrackInitFailed(error) {
-  console.log("HyperTrack init failed with error " + error);
-}
-
-/**
- * Callback, that fires when tracking status changes.
- *
- * @param {String} newStatus 'start', 'stop' or error description.
- *
- */
-function onHyperTrackStatusChanged(newStatus) {
-  console.log("Received HyperTrack status change: " + newStatus.data);
-}
-
-function onHyperTrackError(error) {
-  console.log("Received HyperTrack error: " + error.data);
-}
-
-
 
 app.initialize();
