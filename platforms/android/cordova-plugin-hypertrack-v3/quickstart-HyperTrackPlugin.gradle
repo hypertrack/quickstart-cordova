@@ -2,7 +2,7 @@ def ANDROID_FCM_VERSION = System.getenv('ANDROID_FCM_VERSION') ?: rootProject.ha
 buildscript {
 
     ext {
-        HYPERTRACK_SDK_VERSION = '5.2.0'
+        HYPERTRACK_SDK_VERSION = '6.2.2'
         ANDROID_GRADLE_TOOLS_VERSION = System.getenv('ANDROID_GRADLE_TOOLS_VERSION') ?: rootProject.hasProperty('ANDROID_GRADLE_TOOLS_VERSION') ? rootProject.ext.ANDROID_GRADLE_TOOLS_VERSION : '3.5.3'
         ANDROID_GOOGLE_SERVICES_VERSION = System.getenv('ANDROID_GOOGLE_SERVICES_VERSION') ?: rootProject.hasProperty('ANDROID_GOOGLE_SERVICES_VERSION') ? rootProject.ext.ANDROID_GOOGLE_SERVICES_VERSION : '4.3.3'
         ext.gradleNumberVersion = ANDROID_GRADLE_TOOLS_VERSION.substring(0, ANDROID_GRADLE_TOOLS_VERSION.lastIndexOf(".")).toFloat()

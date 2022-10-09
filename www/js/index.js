@@ -27,7 +27,6 @@ var app = {
   },
   
   // deviceready Event Handler
-  //
   // Bind any cordova events here. Common events are:
   // 'pause', 'resume', etc.
   onDeviceReady: function () {
@@ -43,7 +42,7 @@ var app = {
 
     hypertrack.enableDebugLogging();
     hypertrack.initialize(
-      "jNvgqDgY_j3yj-OwbTQtVcCoVGMOLkmllgV7KUtElL5j3g3nGwNEpLzdOO88KZ1E6rkeGmH7b9spUSFIYM5SkQ",
+      "YOUR-PUBLISHABLE-KEY-HERE",
       onHyperTrackReady,
       onHyperTrackInitFailed
     );
@@ -83,7 +82,7 @@ function onHyperTrackReady(sdkInstance) {
   // Collect bread crumbs
   sdkInstance.addGeoTag(
     { action: "login" },
-    { latitude: 35.0476912, longitude: -90.0260493 },
+    { latitude: 26.922070, longitude: 75.778885 },
     function (deviceLocation) {
       console.log("Created geotag at " + deviceLocation);
     },
@@ -207,7 +206,7 @@ function onHyperTrackReady(sdkInstance) {
       sdkInstance.disposeTrackingState(
         function () {
           var content = document.getElementById("trackingListener");
-          content.textContent = NA;
+          content.textContent = 'NA';
           console.log("HyperTrack disposeTrackingState:");
         },
         function (err) {
@@ -241,7 +240,7 @@ function onHyperTrackReady(sdkInstance) {
         function () {
           console.log("HyperTrack disposeAvailabilityState:");
           var content = document.getElementById("availabilityListener");
-          content.textContent = NA;
+          content.textContent = 'NA';
         },
         function (err) {
           console.log(
@@ -266,4 +265,5 @@ function getBlockers() {
     console.log("HyperTrack:getBlockers err " + err);
   });
 }
+
 app.initialize();
