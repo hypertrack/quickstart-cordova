@@ -2,6 +2,7 @@
 plugins/
 
 # Android Platform
+platforms/
 
 # Node JS + TS
 logs
