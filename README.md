@@ -17,10 +17,26 @@ get your publishable key from the [Setup page](https://dashboard.hypertrack.com/
 Install dependepcies
 ```npm i```
 
-Add platform by running 
-```cordova platform add ios``` & ```cordova platform add android```
+#### Android
 
-Build the app by adding 
-```cordova build android``` & ```cordova build ios```
+Add platform by running  ```cordova platform add android```
+
+Update Android SDK versions
+
+In ```./quickstart-cordova/platforms/android/app/build.gradle```:
+
+```
+minSdkVersion = 24
+compileSdkVersion = 31
+targetSdkVersion = 31
+```
+
+Build the app by running ```cordova build android```
+
+#### IOS
+
+Add platform by running  ```cordova platform add ios```
+
+Build the app by running ```cordova build ios```
 
 
