@@ -1,9 +1,7 @@
 # Cordova Quickstart for HyperTrack SDK 
 
 ![GitHub](https://img.shields.io/github/license/hypertrack/cordova-plugin-hypertrack.svg) 
-![npm](https://img.shields.io/npm/v/cordova-plugin-hypertrack-v3.svg) 
-![iOS SDK](https://img.shields.io/badge/iOS%20SDK-4.13.0-brightgreen.svg) 
-![Android SDK](https://img.shields.io/badge/Android%20SDK-6.3.0-brightgreen.svg)
+![cordova-plugin-hypertrack-v3](https://img.shields.io/npm/v/cordova-plugin-hypertrack-v3?label=cordova-plugin-hypertrack-v3) 
 
 [HyperTrack](https://www.hypertrack.com/) lets you add live location tracking to your mobile app. Live location is made available along with ongoing activity, tracking controls and tracking outage with reasons. 
 
@@ -83,9 +81,9 @@ Select your device (SDK requires real device, it won't work using simulator) and
 
 Set `Build Settings > Swift Compiler - Language > Swift version` to the latest version
 
-### Enable permissions
+### Grant permissions
 
-Enable location and activity permissions (choose "Always Allow" for location).
+Grant location and activity permissions (choose "Always Allow" for location).
 
 ### Start tracking
 
