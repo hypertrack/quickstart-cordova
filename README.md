@@ -1,6 +1,6 @@
 # Cordova Quickstart for HyperTrack SDK 
 
-![GitHub](https://img.shields.io/github/license/hypertrack/cordova-plugin-hypertrack.svg) 
+![GitHub](https://img.shields.io/github/license/hypertrack/quickstart-cordova) 
 ![cordova-plugin-hypertrack-v3](https://img.shields.io/npm/v/cordova-plugin-hypertrack-v3?label=cordova-plugin-hypertrack-v3) 
 
 [HyperTrack](https://www.hypertrack.com/) lets you add live location tracking to your mobile app. Live location is made available along with ongoing activity, tracking controls and tracking outage with reasons. 
@@ -17,8 +17,8 @@ For information about how to get started with Cordova SDK, please check this [Gu
 
 ### Set up the environment
 
-- [Install Cordova CLI](https://cordova.sudo npm install -g cordovaapache.org/docs/en/latest/guide/cli/index.html#installing-the-cordova-cli)
-- [Set up environment](httcordova requirementsps://cordova.apache.org/docs/en/latest/guide/cli/index.html#install-pre-requisites-for-building)
+- [Install Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/index.html#installing-the-cordova-cli)
+- [Set up environment](https://cordova.apache.org/docs/en/latest/guide/cli/index.html#install-pre-requisites-for-building)
 
 ### Clone Quickstart app
 
