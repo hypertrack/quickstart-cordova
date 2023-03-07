@@ -26,8 +26,7 @@ For information about how to get started with Cordova SDK, please check this [Gu
 
 #### General Dependencies
 
-Run
-- `npm install`
+Run `npm install`
 
 #### iOS dependencies
 
