@@ -29,7 +29,7 @@ For information about how to get started with Cordova SDK, please check this [Gu
 Run
 - `npm install`
 
-#### iOS dependencies**
+#### iOS dependencies
 
 Quickstart app uses [CocoaPods](https://cocoapods.org/) dependency manager to install the latest version of the iOS SDK. Using the latest version of CocoaPods is advised.
 
