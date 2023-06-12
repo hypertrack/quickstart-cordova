@@ -1,3 +1,6 @@
+alias ra := run-android
+alias al := update-plugin-local
+
 run-android:
     cordova run android
 
@@ -16,5 +19,6 @@ re-add-android:
     cordova platform remove android
     cordova platform add android
 
-alias u := update-plugin-local
-alias a := run-android
+re-add-ios:
+    cordova platform remove ios
+    cordova platform add ios
