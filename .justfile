@@ -1,3 +1,11 @@
+alias ra := run-android
+alias al := update-plugin-local
+alias ui := re-add-ios
+alias oi := open-ios
+
+add-plugin-from-github:
+    echo "Use local dependency instead (just al)"
+
 run-android:
     cordova run android
 
@@ -16,5 +24,9 @@ re-add-android:
     cordova platform remove android
     cordova platform add android
 
-alias u := update-plugin-local
-alias a := run-android
+re-add-ios:
+    cordova platform remove ios
+    cordova platform add ios
+
+open-ios:
+    open platforms/ios/QuickstartCordova.xcworkspace
