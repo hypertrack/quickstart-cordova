@@ -1,4 +1,4 @@
-const PUBLISHABLE_KEY = "PASTE-YOUR-PUBLISHABLE-KEY-HERE";
+const PUBLISHABLE_KEY = "PasteYourPublishableKeyHere";
 
 var app = {
   // Application Constructor
@@ -128,7 +128,7 @@ var app = {
       document
         .getElementById("addGeotagWithExpectedLocation")
         .addEventListener("click", async () => {
-          const result = await hyperTrack.addGeotag(
+          const result = await hyperTrack.addGeotagWithExpectedLocation(
             {
               payload: "Quickstart Cordova",
               value: Math.random(),
@@ -155,7 +155,6 @@ var app = {
 };
 
 function getLocationResultText(result) {
-  console.log("getLocationResultText", result);
   if (result.type === "success") {
     let latitude = result.value.value.latitude;
     let longitude = result.value.value.longitude;
@@ -166,11 +165,12 @@ function getLocationResultText(result) {
 }
 
 function getLocationWithDeviationResultText(result) {
-  console.log("getLocationWithDeviationResultText", result);
   if (result.type === "success") {
-    let latitude = result.value.value.latitude;
-    let longitude = result.value.value.longitude;
-    let deviation = result.value.deviation;
+    let locationWithDeviation = result.value;
+    let deviation = locationWithDeviation.value.deviation;
+    let location = locationWithDeviation.value.location;
+    let latitude = location.value.latitude;
+    let longitude = location.value.longitude;
     return `Location: ${latitude}, ${longitude}, deviation: ${deviation}`;
   } else {
     return getLocationErrorText(result.value);
