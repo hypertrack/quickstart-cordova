@@ -1,4 +1,5 @@
 alias ra := run-android
+alias ag := add-plugin-from-github
 alias al := update-plugin-local
 alias ui := re-add-ios
 alias oi := open-ios
