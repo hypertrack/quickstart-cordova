@@ -114,7 +114,7 @@ var app = {
         .getElementById("getLocation")
         .addEventListener("click", async () => {
           const result = await HyperTrack.getLocation();
-          logAndAlert(`getLocation ${JSON.stringify(result)}`);
+          logAndAlert(`getLocation ${getLocationResultText(result)}`);
         });
 
       document
@@ -183,8 +183,8 @@ var app = {
 
 function getLocationResultText(result) {
   if (result.type === "success") {
-    let latitude = result.value.value.latitude;
-    let longitude = result.value.value.longitude;
+    let latitude = result.value.latitude;
+    let longitude = result.value.longitude;
     return `Location: ${latitude}, ${longitude}`;
   } else {
     return getLocationErrorText(result.value);
@@ -194,8 +194,8 @@ function getLocationResultText(result) {
 function getLocateResultText(result) {
   if (result.type === "success") {
     let location = result.value;
-    let latitude = location.value.latitude;
-    let longitude = location.value.longitude;
+    let latitude = location.latitude;
+    let longitude = location.longitude;
     return `Location: ${latitude}, ${longitude}`;
   } else {
     return getErrorsText(result.value);
@@ -205,10 +205,10 @@ function getLocateResultText(result) {
 function getLocationWithDeviationResultText(result) {
   if (result.type === "success") {
     let locationWithDeviation = result.value;
-    let deviation = locationWithDeviation.value.deviation;
-    let location = locationWithDeviation.value.location;
-    let latitude = location.value.latitude;
-    let longitude = location.value.longitude;
+    let deviation = locationWithDeviation.deviation;
+    let location = locationWithDeviation.location;
+    let latitude = location.latitude;
+    let longitude = location.longitude;
     return `Location: ${latitude}, ${longitude}, deviation: ${deviation}`;
   } else {
     return getLocationErrorText(result.value);
