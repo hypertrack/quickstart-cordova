@@ -27,70 +27,50 @@
         <div>
             <div class="container--flex">
                 <div class="flex-child">
-                    <h3>isTracking</h3>
+                    <h3>Location</h3>
                 </div>
                 <div class="flex-child">
-                    <div class="listener" id="trackingListener">NA</div>
+                    <div class="listener" id="locationState">NA</div>
                 </div>
             </div>
-            <div class="container--flex">
-                <div class="flex-child">
-                    <h3>isAvailabile</h3>
-                </div>
-                <div class="flex-child">
-                    <div class="listener" id="availabilityListener">NA</div>
-                </div>
-            </div>
+           
             <div class="container--flex">
                 <div class="flex-child">
                     <h3>Errors</h3>
                 </div>
-                <div class="listener" id="errorsListener">NA</div>
+                <div class="listener" id="errorsState">NA</div>
             </div>
 
             <br/><br/>
 
             <div class="container--flex">
                 <div class="flex-child">
-                    <a id="startTracking" class="click-btn btn-style501" href="#">Start</a>
+                    <a id="setIsTrackingTrue" class="click-btn btn-style501" href="#">Start tracking</a>
                 </div>
                 <div class="flex-child">
-                    <a id="stopTracking" class="click-btn btn-style501" href="#"
-                        style="background: #ff00007a;">Stop</a>
+                    <div class="listener" id="isTrackingState">NA</div>
                 </div>
-            </div>
-            
-            <div class="container--flex">
                 <div class="flex-child">
-                    <h3>Set Availability</h3>
+                    <a id="setIsTrackingFalse" class="click-btn btn-style501" href="#"
+                        style="background: #ff00007a;">Stop tracking</a>
                 </div>
             </div>
+
             <div class="container--flex">
                 <div class="flex-child">
-                    <a id="setAvailabilityTrue" class="click-btn btn-style501" href="#">True</a>
+                    <a id="setIsAvailableTrue" class="click-btn btn-style501" href="#">Set Available</a>
                 </div>
                 <div class="flex-child">
-                    <a id="setAvailabilityFalse" class="click-btn btn-style501" href="#"
-                        style="background: #ff00007a;">False</a>
+                    <div class="listener" id="isAvailableState">NA</div>
+                </div>
+                <div class="flex-child">
+                    <a id="setIsAvailableFalse" class="click-btn btn-style501" href="#"
+                        style="background: #ff00007a;">Set Unavailable</a>
                 </div>
             </div>
 
             <br/><br/>
 
-            <div class="container--flex">
-                <div class="flex-child">
-                    <a id="getAvailability" class="click-btn btn-style501" href="#">isAvailable</a>
-                </div>
-                <div class="flex-child">
-                    <a id="isTracking" class="click-btn btn-style501" href="#">isTracking</a>
-                </div>
-            </div>
-
-            <div class="container--flex">
-                <div class="flex-child">
-                    <a id="getLocation" class="click-btn btn-style501" href="#">Get location</a>
-                </div>
-            </div>
             <div class="container--flex">
                 <div class="flex-child">
                     <a id="addGeotag" class="click-btn btn-style501" href="#">Add geotag</a>
@@ -101,14 +81,43 @@
                     <a id="addGeotagWithExpectedLocation" class="click-btn btn-style501" href="#">Add geotag with expected location</a>
                 </div>
             </div>
+
             <div class="container--flex">
                 <div class="flex-child">
-                    <a id="sync" class="click-btn btn-style501" href="#">Sync</a>
+                    <a id="locate" class="click-btn btn-style501" href="#">Locate user</a>
                 </div>
             </div>
+
             <div class="container--flex">
                 <div class="flex-child">
-                    <a id="disposeListeners" class="click-btn btn-style501" style="background: #ff00007a;" href="#">Disable subscriptions</a>
+                    <a id="getErrors" class="click-btn btn-style501" href="#">Get Errors</a>
+                </div>
+                <div class="flex-child">
+                    <a id="getIsAvailable" class="click-btn btn-style501" href="#">Get isAvailable</a>
+                </div>
+            </div>
+
+            <div class="container--flex">
+                <div class="flex-child">
+                    <a id="getIsTracking" class="click-btn btn-style501" href="#">Get isTracking</a>
+                </div>
+                <div class="flex-child">
+                    <a id="getLocation" class="click-btn btn-style501" href="#">Get location</a>
+                </div>
+            </div>
+
+            <div class="container--flex">
+                <div class="flex-child">
+                    <a id="getMetadata" class="click-btn btn-style501" href="#">Get metadata</a>
+                </div>
+                <div class="flex-child">
+                    <a id="getName" class="click-btn btn-style501" href="#">Get name</a>
+                </div>
+            </div>
+            
+            <div class="container--flex">
+                <div class="flex-child">
+                    <a id="unsubscribe" class="click-btn btn-style501" style="background: #ff00007a;" href="#">Disable subscriptions</a>
                 </div>
             </div>
             

@@ -20,105 +20,49 @@ var app = {
   // Update DOM on a Received Event
   receivedEvent: async function (id) {
     try {
-      console.log("Initializing HyperTrack plugin...");
-      var hyperTrack = await HyperTrack.initialize(PUBLISHABLE_KEY, {
-        loggingEnabled: true,
-        allowMockLocations: true,
-      });
-      console.log("Initialized HyperTrack", hyperTrack);
-
-      const deviceId = await hyperTrack.getDeviceId();
+      const deviceId = await HyperTrack.getDeviceId();
       console.log("getDeviceId", deviceId);
       document.getElementById("deviceId").textContent = deviceId;
 
       const name = "Quickstart Cordova";
-      hyperTrack.setName(name);
+      HyperTrack.setName(name);
       console.log("setName", name);
 
       const metadata = {
         app: "Quickstart Cordova",
         value: Math.random(),
       };
-      hyperTrack.setMetadata(metadata);
+      HyperTrack.setMetadata(metadata);
       console.log("setMetadata", JSON.stringify(metadata));
 
-      hyperTrack.subscribeToTracking(function (isTracking) {
-        console.log(`listener isTracking ${isTracking}`);
-        document.getElementById("trackingListener").textContent =
-          JSON.stringify(isTracking);
-        document.getElementById("errorsListener").textContent = "";
+      HyperTrack.subscribeToErrors(function (errors) {
+        console.log(`listener errors ${JSON.stringify(errors)}`);
+        document.getElementById("errorsState").textContent =
+          getErrorsText(errors);
       });
 
-      hyperTrack.subscribeToAvailability(function (isAvailable) {
+      HyperTrack.subscribeToIsAvailable(function (isAvailable) {
         console.log(`listener isAvailable ${isAvailable}`);
-        document.getElementById("availabilityListener").textContent =
+        document.getElementById("isAvailableState").textContent =
           JSON.stringify(isAvailable);
       });
 
-      hyperTrack.subscribeToErrors(function (errors) {
-        console.log(`listener errors ${JSON.stringify(errors)}`);
-        document.getElementById("errorsListener").textContent =
-          JSON.stringify(errors);
+      HyperTrack.subscribeToIsTracking(function (isTracking) {
+        console.log(`listener isTracking ${isTracking}`);
+        document.getElementById("isTrackingState").textContent =
+          JSON.stringify(isTracking);
       });
 
-      document.getElementById("startTracking").addEventListener("click", () => {
-        console.log("startTracking");
-        hyperTrack.startTracking();
+      HyperTrack.subscribeToLocation(function (location) {
+        console.log(`listener location ${JSON.stringify(location)}`);
+        document.getElementById("locationState").textContent =
+          getLocationResultText(location);
       });
-
-      document.getElementById("stopTracking").addEventListener("click", () => {
-        console.log("stopTracking");
-        hyperTrack.stopTracking();
-      });
-
-      document
-        .getElementById("setAvailabilityTrue")
-        .addEventListener("click", () => {
-          console.log("set isAvailable = true");
-          hyperTrack.setAvailability(true);
-        });
-
-      document
-        .getElementById("setAvailabilityFalse")
-        .addEventListener("click", () => {
-          console.log("set isAvailable = false");
-          hyperTrack.setAvailability(false);
-        });
-
-      document
-        .getElementById("getAvailability")
-        .addEventListener("click", async () => {
-          const isAvailable = await hyperTrack.isAvailable();
-          logAndAlert(`isAvailable ${isAvailable}`);
-        });
-
-      document
-        .getElementById("isTracking")
-        .addEventListener("click", async () => {
-          const isTracking = await hyperTrack.isTracking();
-          logAndAlert(`isTracking ${isTracking}`);
-        });
-
-      document
-        .getElementById("disposeListeners")
-        .addEventListener("click", () => {
-          hyperTrack.unsubscribeFromTracking();
-          hyperTrack.unsubscribeFromAvailability();
-          hyperTrack.unsubscribeFromErrors();
-          logAndAlert("disposeListeners");
-        });
-
-      document
-        .getElementById("getLocation")
-        .addEventListener("click", async () => {
-          const result = await hyperTrack.getLocation();
-          logAndAlert(`getLocation ${JSON.stringify(result)}`);
-        });
 
       document
         .getElementById("addGeotag")
         .addEventListener("click", async () => {
-          const result = await hyperTrack.addGeotag({
+          const result = await HyperTrack.addGeotag({
             payload: "Quickstart Cordova",
             value: Math.random(),
           });
@@ -128,7 +72,7 @@ var app = {
       document
         .getElementById("addGeotagWithExpectedLocation")
         .addEventListener("click", async () => {
-          const result = await hyperTrack.addGeotagWithExpectedLocation(
+          const result = await HyperTrack.addGeotagWithExpectedLocation(
             {
               payload: "Quickstart Cordova",
               value: Math.random(),
@@ -145,8 +89,91 @@ var app = {
           );
         });
 
-      document.getElementById("sync").addEventListener("click", () => {
-        logAndAlert("sync");
+      document
+        .getElementById("getErrors")
+        .addEventListener("click", async () => {
+          const errors = await HyperTrack.getErrors();
+          logAndAlert(`getErrors ${getErrorsText(errors)}`);
+        });
+
+      document
+        .getElementById("getIsAvailable")
+        .addEventListener("click", async () => {
+          const isAvailable = await HyperTrack.getIsAvailable();
+          logAndAlert(`getIsAvailable ${isAvailable}`);
+        });
+
+      document
+        .getElementById("getIsTracking")
+        .addEventListener("click", async () => {
+          const isTracking = await HyperTrack.getIsTracking();
+          logAndAlert(`getIsTracking ${isTracking}`);
+        });
+
+      document
+        .getElementById("getLocation")
+        .addEventListener("click", async () => {
+          const result = await HyperTrack.getLocation();
+          logAndAlert(`getLocation ${getLocationResultText(result)}`);
+        });
+
+      document
+        .getElementById("getMetadata")
+        .addEventListener("click", async () => {
+          const metadata = await HyperTrack.getMetadata();
+          logAndAlert(`getMetadata ${JSON.stringify(metadata)}`);
+        });
+
+      document.getElementById("getName").addEventListener("click", async () => {
+        const name = await HyperTrack.getName();
+        logAndAlert(`getName ${name}`);
+      });
+
+      document.getElementById("locate").addEventListener("click", async () => {
+        HyperTrack.locate(function (result) {
+          logAndAlert(`locate ${getLocateResultText(result)}`);
+        });
+      });
+
+      document
+        .getElementById("setIsAvailableTrue")
+        .addEventListener("click", async () => {
+          const isAvailable = true;
+          HyperTrack.setIsAvailable(isAvailable);
+          console.log(`setIsAvailable ${isAvailable}`);
+        });
+
+      document
+        .getElementById("setIsAvailableFalse")
+        .addEventListener("click", async () => {
+          const isAvailable = false;
+          HyperTrack.setIsAvailable(isAvailable);
+          console.log(`setIsAvailable ${isAvailable}`);
+        });
+
+      document
+        .getElementById("setIsTrackingTrue")
+        .addEventListener("click", async () => {
+          const isTracking = true;
+          HyperTrack.setIsTracking(isTracking);
+          console.log(`setIsTracking ${isTracking}`);
+        });
+
+      document
+        .getElementById("setIsTrackingFalse")
+        .addEventListener("click", async () => {
+          const isTracking = false;
+          HyperTrack.setIsTracking(isTracking);
+          console.log(`setIsTracking ${isTracking}`);
+        });
+
+      document.getElementById("unsubscribe").addEventListener("click", () => {
+        HyperTrack.unsubscribeFromErrors();
+        HyperTrack.unsubscribeFromIsAvailable();
+        HyperTrack.unsubscribeFromIsTracking();
+        HyperTrack.unsubscribeFromLocate();
+        HyperTrack.unsubscribeFromLocation();
+        console.log("unsubscribe");
       });
     } catch (e) {
       console.log("Error", e);
@@ -156,21 +183,32 @@ var app = {
 
 function getLocationResultText(result) {
   if (result.type === "success") {
-    let latitude = result.value.value.latitude;
-    let longitude = result.value.value.longitude;
+    let latitude = result.value.latitude;
+    let longitude = result.value.longitude;
     return `Location: ${latitude}, ${longitude}`;
   } else {
     return getLocationErrorText(result.value);
   }
 }
 
+function getLocateResultText(result) {
+  if (result.type === "success") {
+    let location = result.value;
+    let latitude = location.latitude;
+    let longitude = location.longitude;
+    return `Location: ${latitude}, ${longitude}`;
+  } else {
+    return getErrorsText(result.value);
+  }
+}
+
 function getLocationWithDeviationResultText(result) {
   if (result.type === "success") {
     let locationWithDeviation = result.value;
-    let deviation = locationWithDeviation.value.deviation;
-    let location = locationWithDeviation.value.location;
-    let latitude = location.value.latitude;
-    let longitude = location.value.longitude;
+    let deviation = locationWithDeviation.deviation;
+    let location = locationWithDeviation.location;
+    let latitude = location.latitude;
+    let longitude = location.longitude;
     return `Location: ${latitude}, ${longitude}, deviation: ${deviation}`;
   } else {
     return getLocationErrorText(result.value);
@@ -187,6 +225,7 @@ function getLocationErrorText(locationError) {
 }
 
 function getErrorsText(errors) {
+  console.log(errors);
   return `Errors: ${errors.join("\n")}`;
 }
 

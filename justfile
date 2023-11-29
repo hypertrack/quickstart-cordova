@@ -1,10 +1,11 @@
 alias ra := run-android
+alias ag := add-plugin-from-github
 alias al := update-plugin-local
 alias ui := re-add-ios
 alias oi := open-ios
 
-add-plugin-from-github:
-    echo "Use local dependency instead (just al)"
+add-plugin-from-github version:
+    echo "Use local dependency instead (just al), adding from github doesn't work well with Cordova"
 
 run-android:
     cordova run android
