@@ -28,9 +28,25 @@ var app = {
       HyperTrack.setName(name);
       console.log("setName", name);
 
-      const metadata = {
-        app: "Quickstart Cordova",
-        value: Math.random(),
+      let platformName = "";
+      if (device.platform === "Android") {
+        platformName = "android";
+      } else if (device.platform === "iOS") {
+        platformName = "ios";
+      }
+      let metadata = {
+        /**
+         * `driver_handle` is used to link the device and the driver.
+         * You can use any unique user identifier here.
+         * The recommended way is to set it on app login in set it to null on logout
+         * (to remove the link between the device and the driver)
+         **/
+        driver_handle: `test_driver_quickstart_cordova_${platformName}`,
+        /**
+         * You can also add any custom data to the metadata.
+         */
+        source: name,
+        employee_id: Math.round(Math.random() * 10000),
       };
       HyperTrack.setMetadata(metadata);
       console.log("setMetadata", JSON.stringify(metadata));
