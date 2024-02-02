@@ -17,6 +17,7 @@ add-plugin-from-github version:
 add-plugin-local:
     cordova plugin remove cordova-plugin-hypertrack-v3
     cordova plugin add file:../cordova-plugin-hypertrack
+    cd platforms/ios && rm Podfile.lock && pod install && cd ../..
 
 build-android:
     cordova build android
