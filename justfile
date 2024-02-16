@@ -1,11 +1,24 @@
+alias a := add-plugin
 alias ag := add-plugin-from-github
-alias al := update-plugin-local
+alias al := add-plugin-local
+alias ap := add-plugin
 alias oi := open-ios
 alias ra := run-android
 alias ui := re-add-ios
 
+add-plugin version:
+    cordova plugin add cordova-plugin-hypertrack-v3
+    npm i --save-exact cordova-plugin-hypertrack-v3@{{version}}
+    just pod-install
+
 add-plugin-from-github version:
     echo "Use local dependency instead (just al), adding from github doesn't work well with Cordova"
+    exit 1
+
+add-plugin-local:
+    cordova plugin remove cordova-plugin-hypertrack-v3
+    cordova plugin add file:../cordova-plugin-hypertrack
+    just pod-install
 
 build-android:
     cordova build android
@@ -13,7 +26,15 @@ build-android:
 open-ios:
     open platforms/ios/QuickstartCordova.xcworkspace
 
-# you need to copy google-services.json manually
+pod-install:
+    #!/usr/bin/env sh
+    set -euo pipefail
+
+    cd platforms/ios
+    rm Podfile.lock
+    pod install --repo-update
+    cd ../..
+
 re-add-android:
     cordova platform remove android
     cordova platform add android
@@ -28,7 +49,3 @@ run-android:
 run-ios:
     cordova run ios
 
-
-update-plugin-local:
-    cordova plugin remove cordova-plugin-hypertrack-v3
-    cordova plugin add file:../cordova-plugin-hypertrack
