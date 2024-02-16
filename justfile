@@ -8,7 +8,7 @@ alias ui := re-add-ios
 
 add-plugin version:
     cordova plugin add cordova-plugin-hypertrack-v3
-    npm i cordova-plugin-hypertrack-v3@{{version}}
+    npm i --save-exact cordova-plugin-hypertrack-v3@{{version}}
     just pod-install
 
 add-plugin-from-github version:
