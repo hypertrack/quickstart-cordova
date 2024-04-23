@@ -1,5 +1,3 @@
-const PUBLISHABLE_KEY = "PasteYourPublishableKeyHere";
-
 var app = {
   // Application Constructor
   initialize: function () {

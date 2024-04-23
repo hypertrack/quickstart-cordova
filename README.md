@@ -1,9 +1,9 @@
-# Cordova Quickstart for HyperTrack SDK 
+# Cordova Quickstart for HyperTrack SDK
 
 [![GitHub](https://img.shields.io/github/license/hypertrack/quickstart-cordova?color=orange)](./LICENSE)
 [![cordova-plugin-hypertrack-v3](https://img.shields.io/badge/cordova_plugin_hypertrack_v3-1.0.0-brightgreen.svg)](https://github.com/hypertrack/cordova-plugin-hypertrack)
 
-[HyperTrack](https://www.hypertrack.com/) lets you add live location tracking to your mobile app. Live location is made available along with ongoing activity, tracking controls and tracking outage with reasons. 
+[HyperTrack](https://www.hypertrack.com/) lets you add live location tracking to your mobile app. Live location is made available along with ongoing activity, tracking controls and tracking outage with reasons.
 
 This repo contains an example Cordova app that has everything you need to get started.
 
@@ -49,12 +49,11 @@ Add build params to `quickstart-cordova/platforms/android/gradle.properties`:
 
 ```
 cdvSdkVersion=31
-cdvMinSdkVersion=23
 ```
 
 ### Update the publishable key
 
-Insert your HyperTrack publishable key to `const PUBLISHABLE_KEY` in `www/js/index.js`
+Follow the instructions for setting the publishable key for [iOS](https://hypertrack.com/docs/install-sdk-ios/#set-the-publishable-key) and [Android](https://hypertrack.com/docs/install-sdk-android/#set-the-publishable-key).
 
 ### [Set up silent push notifications](https://hypertrack.com/docs/install-sdk-cordova/#set-up-silent-push-notifications)
 
@@ -72,7 +71,7 @@ Run `cordova run android`
 
 #### iOS
 
-Open the app's workspace file (`/ios/QuickstartCordova.xcworkspace`) with Xcode. 
+Open the app's workspace file (`/ios/QuickstartCordova.xcworkspace`) with Xcode.
 
 Select your device (SDK requires real device, it won't work using simulator) and hit Run.
 
