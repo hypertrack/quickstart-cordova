@@ -1,5 +1,3 @@
-const PUBLISHABLE_KEY = "PasteYourPublishableKeyHere";
-
 var app = {
   // Application Constructor
   initialize: function () {
@@ -78,25 +76,44 @@ var app = {
       document
         .getElementById("addGeotag")
         .addEventListener("click", async () => {
-          const result = await HyperTrack.addGeotag({
+          const orderHandle = "test_order";
+          const orderStatus = {
+            type: "orderStatusCustom",
+            value: "test_status",
+          };
+          const data = {
             payload: "Quickstart Cordova",
             value: Math.random(),
-          });
+          };
+          const result = await HyperTrack.addGeotag(
+            orderHandle,
+            orderStatus,
+            data
+          );
           logAndAlert(`addGeotag ${getLocationResultText(result)}`);
         });
 
       document
         .getElementById("addGeotagWithExpectedLocation")
         .addEventListener("click", async () => {
+          const orderHandle = "test_order";
+          const orderStatus = {
+            type: "orderStatusCustom",
+            value: "test_status",
+          };
+          const data = {
+            payload: "Quickstart Cordova",
+            value: Math.random(),
+          };
+          const expectedLocation = {
+            latitude: 37.787359,
+            longitude: -122.408227,
+          };
           const result = await HyperTrack.addGeotagWithExpectedLocation(
-            {
-              payload: "Quickstart Cordova",
-              value: Math.random(),
-            },
-            {
-              latitude: 37.787359,
-              longitude: -122.408227,
-            }
+            orderHandle,
+            orderStatus,
+            data,
+            expectedLocation
           );
           logAndAlert(
             `addGeotagWithExpectedLocation ${getLocationWithDeviationResultText(
