@@ -8,6 +8,8 @@ alias oi := open-ios
 alias ra := run-android
 alias s := setup
 alias us := update-sdk
+alias v := version
+alias va := version-android
 
 SDK_NAME := "HyperTrack SDK Cordova"
 SDK_REPOSITORY_NAME := "cordova-plugin-hypertrack"
@@ -74,3 +76,13 @@ update-sdk version: hooks
     just add-plugin {{version}}
     git commit -am "Update {{SDK_NAME}} to {{version}}"
     just open-github-prs
+
+version:
+    @cat package.json | grep cordova-plugin-hypertrack-v3 | head -n 1 | grep -o -E '{{SEMVER_REGEX}}'
+
+version-android:
+    #!/usr/bin/env sh
+    set -euo pipefail
+    cd platforms/android
+    ./gradlew app:dependencies | grep "com.hypertrack:sdk-android" | head -n 1 | grep -o -E '{{SEMVER_REGEX}}'
+    cd ../..
