@@ -74,3 +74,13 @@ update-sdk version: hooks
     just add-plugin {{version}}
     git commit -am "Update {{SDK_NAME}} to {{version}}"
     just open-github-prs
+
+version:
+    @cat package.json | grep cordova-plugin-hypertrack-v3 | head -n 1 | grep -o -E '{{SEMVER_REGEX}}'
+
+version-android:
+    #!/usr/bin/env sh
+    set -euo pipefail
+    cd platforms/android
+    ./gradlew app:dependencies | grep "com.hypertrack:sdk-android" | head -n 1 | grep -o -E '{{SEMVER_REGEX}}'
+    cd ../..
