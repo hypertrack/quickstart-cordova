@@ -8,6 +8,8 @@ alias oi := open-ios
 alias ra := run-android
 alias s := setup
 alias us := update-sdk
+alias v := version
+alias va := version-android
 
 SDK_NAME := "HyperTrack SDK Cordova"
 SDK_REPOSITORY_NAME := "cordova-plugin-hypertrack"
